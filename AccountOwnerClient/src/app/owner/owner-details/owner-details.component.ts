@@ -13,7 +13,7 @@ export class OwnerDetailsComponent implements OnInit {
   public owner: Owner = {
     id: '',
     name: '',
-    dateOfBirth: new Date(),
+    dateOfBirth: '',
     address: '',
     accounts: []
   };

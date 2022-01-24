@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { InternalServerComponent } from './error-pages/internal-server/internal-
   imports: [
     BrowserModule,
     HttpClientModule,
+    DatePipe,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
       { path: 'owner', loadChildren: () => import('./owner/owner.module').then(m => m.OwnerModule) },
@@ -29,7 +31,9 @@ import { InternalServerComponent } from './error-pages/internal-server/internal-
       { path: '**', redirectTo: '/404', pathMatch: 'full'}
     ])
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
